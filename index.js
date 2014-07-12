@@ -55,7 +55,7 @@ function webhook(port,restart) {
 		if (github.verify(req.method,req.url,req.headers)) {
 
 			//process.nextTick(deploy.doit);
-			console.log(req.body);
+			console.log(req);
 			
 			res.writeHead(200, {'Content-Type': 'text/html'});
 			res.write(JSON.stringify(req.body||{},null,2));
