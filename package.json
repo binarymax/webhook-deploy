@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git://github.com//binarymax/webhook-deploy.git"
   },
+  "dependendies": {
+    "commander":"2.2.x"
+  },
   "keywords": [
     "webhook",
     "deploy",
