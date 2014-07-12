@@ -1,0 +1,21 @@
+{
+  "name": "webhook-deploy",
+  "version": "0.0.0",
+  "description": "Webhook driven deployments",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com//binarymax/webhook-deploy.git"
+  },
+  "keywords": [
+    "webhook",
+    "deploy",
+    "ci",
+    "git"
+  ],
+  "author": "Max Irwin",
+  "license": "MIT"
+}
