@@ -56,13 +56,17 @@ function initialize(git,secret,port,restart) {
 
 	var handler = webhook({ path: '/deploy', secret: secret });
 
+	deploy.init(git,restart);
+
 	handler.on('error', function (err) {
-		console.error('Error:', err.message)
+		console.error('Error:', err.message);
+		deploy.doit();
+
 	});
 
 	handler.on('push', function (event) {
 		console.log('Received a push event for %s to %s',event.payload.repository.name,event.payload.ref);
-		//deploy.doit(git,restart);
+		deploy.doit();
 	});
 
 	handler.on('issues', function (event) {

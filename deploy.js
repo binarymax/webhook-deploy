@@ -14,13 +14,17 @@ var compose = function(command,options) {
 			});		
 		};
 	};
-}
+};
 
 deploy.doit = function(callback) {
 
-	if (pull && npm && restart) {
+	//if (pull && npm && restart) {
 
-		pull(npm(restart(callback)))();
+		//pull(npm(restart(callback)))();
+
+	if (pull) {
+
+		pull(callback)();
 
 	} else {
 
@@ -30,7 +34,7 @@ deploy.doit = function(callback) {
 
 };
 
-deploy.init = function(restart,cwd) {
+deploy.init = function(cwd,restart) {
 	var opt = {cwd : cwd};
 	pull    = compose("git pull", opt);
 	npm     = compose("npm install", opt);

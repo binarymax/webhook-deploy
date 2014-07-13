@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git://github.com//binarymax/webhook-deploy.git"
   },
-  "dependendies": {
+  "dependencies": {
     "commander": "2.2.x",
     "github-webhook-handler": "0.2.x"
   },
