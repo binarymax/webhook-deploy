@@ -57,7 +57,7 @@ function initialize(git,secret,port,restart) {
 	var handler = webhook({ path: '/deploy', secret: secret });
 
 	handler.on('error', function (err) {
-		console.err('Error:', err.message)
+		console.error('Error:', err.message)
 	});
 
 	handler.on('push', function (event) {
