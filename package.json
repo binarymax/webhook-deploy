@@ -1,6 +1,6 @@
 {
   "name": "webhook-deploy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Webhook driven deployments",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "dependendies": {
     "commander": "2.2.x",
-    "github-webhook-handler":"0.2.x"
+    "github-webhook-handler": "0.2.x"
   },
   "keywords": [
     "webhook",
