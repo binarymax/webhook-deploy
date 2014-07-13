@@ -60,13 +60,13 @@ function initialize(git,secret,port,restart) {
 
 	handler.on('error', function (err) {
 		console.error('Error:', err.message);
-		deploy.doit();
+		deploy.doit(feedback);
 
 	});
 
 	handler.on('push', function (event) {
 		console.log('Received a push event for %s to %s',event.payload.repository.name,event.payload.ref);
-		deploy.doit();
+		deploy.doit(feedback);
 	});
 
 	handler.on('issues', function (event) {
@@ -76,6 +76,11 @@ function initialize(git,secret,port,restart) {
 			event.payload.issue.number,
 			event.payload.issue.title);
 	});
+
+	var feedback = function(err,message) {
+		if(err) console.error('Error:',err);
+		else console.log(message);
+	};
 
 	var listener = function(req,res) {
 
