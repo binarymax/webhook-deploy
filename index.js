@@ -50,17 +50,27 @@ if (!command.git) {
 // Starts Webhook server
 function webhook(port,restart) {
 
+	var body = function(req,callback) {
+		var data = "";
+
+		req.on('data',  function(chunk) { data+=chunk; });
+		req.on('end',   function() { callback(null,data); });
+		req.on('error', function() { callback("An error occurred with the request"); });
+
+	};
+
 	var listener = function(req,res) {
 
 		if (github.verify(req.method,req.url,req.headers)) {
 
 			//process.nextTick(deploy.doit);
-			console.log(req);
 			
-			res.writeHead(200, {'Content-Type': 'text/html'});
-			res.write(JSON.stringify(req.body||{},null,2));
-			res.write('Success');
-			res.end();
+			body(req,function(err,data){
+				console.log(data);
+				res.writeHead(200, {'Content-Type': 'text/html'});
+				res.write('Success');
+				res.end();
+			});
 
 		} else {
 
